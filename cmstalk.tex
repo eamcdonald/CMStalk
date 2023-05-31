@@ -82,11 +82,13 @@
    
 \begin{document}
 
-\title[A Dixmier trace formula for the DOS]{A Dixmier trace formula for the density of states}
+\title[The Dixmier trace and the DOS]{The Dixmier trace and the Density of States}
 
 
 \author[E. McDonald]{Ed McDonald\\
-Joint with N. Azamov, E. Hekkelman F. Sukochev and D. Zanin.}
+Based on joint work with N. Azamov, E. Hekkelman F. Sukochev and D. Zanin.}
+
+% Abstract: The Dixmier trace has been employed by Connes for several purposes, including defining the integral in noncommutative geometry. Connes' integration formula can be viewed as a way of associating a measure to a self-adjoint operator. In solid state physics there is another celebrated measure associated with Schrodinger operators: the density of states. Using techniques from noncommutative geometry, we have recently proved that the density of states can in many cases be computed by a Dixmier trace. This work also provides a new perspective on Roe's index theorem for open manifolds by giving a Dixmier trace formula for the index. Joint work with N. Azamov, E. Hekkelman, F. Sukochev and D. Zanin. 
 
 
 \institute[]{Penn State University}
@@ -97,7 +99,7 @@ Joint with N. Azamov, E. Hekkelman F. Sukochev and D. Zanin.}
 \begin{frame}{Introduction}
 This talk is about a connection between the density of states and Dixmier traces, covered in the two papers
 \begin{itemize}
-\item{} N.~Azamov, E.~M., F.~Sukochev. and D.~Zanin: \emph{A Dixmier Trace Formula for the Density of States} Comm. Math. Phys. 377 (2020), no. 3, 2597–2628.  \texttt{arXiv:1910.12380}.
+\item{} N.~Azamov, E.~M., F.~Sukochev. and D.~Zanin \emph{A Dixmier Trace Formula for the Density of States} Comm. Math. Phys. 377 (2020), no. 3, 2597–2628.  \texttt{arXiv:1910.12380}.
 \item{} N.~Azamov, E.~Hekkelman, E.M., F.~Sukochev and D.~Zanin. \emph{An application of singular traces to crystals and percolation.} J. Geom. Phys. 179 (2022), Paper No. 104608, 22 pp. \texttt{arXiv:2202.03676}
 \end{itemize}
 and the recent preprint
@@ -129,8 +131,11 @@ and the recent preprint
 
 \begin{frame}{Introduction}
     Dixmier traces are probably best known due to their use by Connes to define the integration functional
-    in noncommutative geometry. In particular, the Hochschild class of the Chern character is 
-    
+    in noncommutative geometry. In particular, Connes gave a formula for the Hochschild class of the Chern character in terms of the Dixmier trace. \\ 
+    \pause
+    But their use is not limited to NCG. Today I will talk about one Dixmier trace formula which is meaningful in mathematical physics. \\
+    \pause
+    This formula was conjectured and proved on the basis of developments in NCG.
 \end{frame}
 
 \section{Dixmier trace formula for the density of states}
@@ -142,6 +147,7 @@ and the recent preprint
                      &= \text{ Dimension of the span of the eigenvectors}\\
                      &\text{ corresponding to eigenvalues }\leq t.
     \end{align*}
+    \pause
     This is less useful when $H$ has some essential spectrum. What is a good replacement?
 
 %     Let $F$ be a locally integrable function on $\Rl^d$, $d \geq 1$. A reasonable definition of a \emph{mean value} for $F$ is to take the limit
@@ -183,7 +189,7 @@ and the recent preprint
     The operator $\Delta_R$ is negative semidefinite and has purely discrete spectrum.
 \end{frame}
 
-\begin{frame}{Schr\"odinger operators}
+\begin{frame}{Schr\"odinger operators on bounded domains}
     Given $V \in L_\infty(B(0,R))$, denote by $M_V$ the operator of pointwise multiplication by $V$. That is, $(M_V\xi)(t) = V(t)\xi(t)$. \pause \\
     For the purposes of this talk a \emph{Schr\"odinger operator} on $B(0,R)$ is a linear operator
     $$
@@ -195,142 +201,31 @@ and the recent preprint
     perturbation of $-\Delta_R$, the spectrum of $H$ is discrete and consists only of eigenvalues of finite multiplicity. 
 \end{frame}
 
-\begin{frame}{Spectral counting function}
-    Let $H  =-\Delta_L+M_V$ be a Schr\"odinger operator on $B(0,R)$.
-%     Since $H$ is lower bounded and has no essential spectrum, we have $N(t,H) < \infty$ for all $t \in \Rl$.
-\end{frame}
-
 \begin{frame}{Schr\"odinger operators on $\Rl^d$}
     So far we have only discussed operators on bounded domains. What about unbounded domains?
     Let $\Delta = \sum_{j=1}^d \partial_{x_j}^2$ be the Laplace operator on $L_2(\Rl^d)$. This operator is self-adjoint,
-    has spectrum $(-\infty,0]$ and has no eigenvalues. We consider the Hamiltonian 
+    has spectrum $(-\infty,0]$ and has no eigenvalues. \pause We consider the Hamiltonian 
     $$
         H = -\Delta+M_V
     $$
     where $V \in L_\infty(\Rl^d)$ is real-valued.
     
-    What does the spectrum of $H$ look like?
+    What does the spectrum of $H$ look like?  \pause
+    The spectral counting function usually does not make sense for Schr\"odinger operators on $\Rl^d$, since the spectrum can be continuous.
 \end{frame}
-
-\begin{frame}
-% One important question regarding DOS is its existence. DOS does not always exists, but it is well known that it exists for \\
-% 
-% 1) for Schr\"odinger operators with periodic potentials;\\
-Suppose that $V$ is periodic. The celebrated Bloch-Floquet theory asserts that the spectrum of a periodic Schr\"odinger operator is purely absolutely continuous and consists of a union of bands:
-
-\hskip -2.5 cm 
-\begin{picture}(200,40)
-\put(100,20){\vector(1,0){295}}
-\put(150,18){\line(1,0){30}}
-\put(150,19){\line(1,0){30}}
-\put(150,21){\line(1,0){30}}
-\put(150,22){\line(1,0){30}}
-
-\put(203,18){\line(1,0){27}}
-\put(203,19){\line(1,0){27}}
-\put(203,21){\line(1,0){27}}
-\put(203,22){\line(1,0){27}}
-
-\put(241,24){\ldots}
-
-\put(263,18){\line(1,0){27}}
-\put(263,19){\line(1,0){27}}
-\put(263,21){\line(1,0){27}}
-\put(263,22){\line(1,0){27}}
-
-
-\put(320,18){\line(1,0){60}}
-\put(320,19){\line(1,0){60}}
-\put(320,21){\line(1,0){60}}
-\put(320,22){\line(1,0){60}}
-\put(380,24){\ldots}
-
-%\put(160,20){\line(0,-1){8}}
-%\put(157,4){\small $0$}
-\end{picture}
-
-
-\bigskip
-For Schr\"odinger operators with appropriately defined random potentials,
-
-the celebrated Anderson localisation theory asserts that the spectrum of a random Schr\"odinger operator has almost surely a pure point bottom part:
-
-\hskip -2.5 cm
-\begin{picture}(200,40)
-\put(100,20){\vector(1,0){265}}
-\put(160,20){\line(0,-1){8}}
-\put(157,4){\small $0$}
-
-  \put(162,24){\line(0,-1){8}}
-  \put(164,24){\line(0,-1){8}}
-  \put(166,24){\line(0,-1){8}}
-  \put(169,24){\line(0,-1){8}}
-  \put(170,24){\line(0,-1){8}}
-  \put(172,24){\line(0,-1){8}}
-  \put(173,24){\line(0,-1){8}}
-  \put(176,24){\line(0,-1){8}}
-  \put(178,24){\line(0,-1){8}}
-  \put(179,24){\line(0,-1){8}}
-  \put(181,24){\line(0,-1){8}}
-  \put(184,24){\line(0,-1){8}}
-  \put(186,24){\line(0,-1){8}}
-  \put(188,24){\line(0,-1){8}}
-  \put(189,24){\line(0,-1){8}}
-  \put(190,24){\line(0,-1){8}}
-  \put(192,24){\line(0,-1){8}}
-  \put(194,24){\line(0,-1){8}}
-  \put(195,24){\line(0,-1){8}}
-  \put(197,24){\line(0,-1){8}}
-  \put(198,24){\line(0,-1){8}}
-  \put(200,24){\line(0,-1){8}}
-  \put(202,24){\line(0,-1){8}}
-  \put(204,24){\line(0,-1){8}}
-  \put(205,24){\line(0,-1){8}}
-  \put(207,24){\line(0,-1){8}}
-  \put(208,24){\line(0,-1){8}}
-  \put(210,24){\line(0,-1){8}}
-  \put(212,24){\line(0,-1){8}}
-  \put(214,24){\line(0,-1){8}}
-  \put(215,24){\line(0,-1){8}}
-  \put(217,24){\line(0,-1){8}}
-  \put(218,24){\line(0,-1){8}}
-  \put(219,24){\line(0,-1){8}}
-
-%\put(220,5){\vector(0,1){10}}
-
-\put(220,17){\line(1,0){110}}
-\put(220,18){\line(1,0){110}}
-\put(220,19){\line(1,0){110}}
-\put(220,21){\line(1,0){110}}
-\put(220,22){\line(1,0){110}}
-\put(220,23){\line(1,0){110}}
-
-\put(334,24){\ldots}
-
-\end{picture}
-  
-\bigskip 
-(thanks to Nurulla Azamov for these pictures).
-% Existence of DOS is a subtle question. We will simply assume that it exists. 
-
-\end{frame}
-
-
-
 
 \begin{frame}{The density of states}
-    The spectral counting function usually does not make sense for Schr\"odinger operators on $\Rl^d$, since the spectrum can be continuous.
     What is a good replacement?\\
     \pause
     {\bf Idea}: (From solid-state physics.) Let $R > 0$, and ``restrict" $H$ to $B(0,R)$:
-    $$
+    \[
         H_R := -\Delta_R + M_{V}
-    $$
+    \]
     on $L_2(B(0,R))$. The \emph{density of states} of $H$ is a measure $\nu_H$ on $\Rl$ defined as
-    $$
+    \[
         \nu_H((-\infty,t]) := \lim_{R\to \infty} \frac{N(t,H_R)}{\mathrm{Vol}(B(0,R))},\quad t \in \Rl.
-    $$ 
-    Optimistically, this limit exists and indeed defines a measure.
+    \] 
+    Optimistically, this limit exists and indeed defines a measure. 
 \end{frame}
 
 \begin{frame}{Problems with the density of states}
@@ -339,24 +234,36 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
         \item{} Does the limit as $R\to\infty$ really exist and does it define a measure? \pause    Answer: Not always, but sometimes it does. \pause
         \item{} If it exists, what is the support of $\nu_H$? \pause   Answer: the essential spectrum of $H$. \pause
         \item{} Does $\nu_H$ depend on the choice of boundary conditions for $H_R$? \pause   Answer: No. \pause
-        \item{} Does it matter that we ``restricted" $H$ to balls $B(0,R)$? What about cubes or other domains? \pause Answer: For many classes of potentials (random, almost periodic), the choice of domain is irrelevant. For arbitrary potentials, the domain matters.
+        \item{} Does it matter that we ``restricted" $H$ to balls $B(0,R)$? What about cubes or other domains? \pause Answer: For many classes of potentials $V$ (random, almost periodic), the choice of domain is irrelevant. For arbitrary potentials, the domain matters.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Example}
     An example where the DOS is easily computed is the ``free" Hamiltonian, corresponding to $V = 0$. We have
     \begin{equation*}
-        d\nu_{-\Delta}(t) = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\max\{t,0\}^{\frac{d}{2}-1}\,dt.
+        \frac{d\nu_{-\Delta}}{dt} = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\max\{t,0\}^{\frac{d}{2}-1}.
     \end{equation*}
 \end{frame}
 
 \begin{frame}{Example}
     Another example allowing explicit computation is when $V$ is radially homogeneous (i.e., $V(r\xi) = V(\xi)$ for all $r>0$). In this case, the DOS exists and 
     \[
-        d\nu_{-\Delta+M_V}(t) = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\cdot \frac{1}{|S^{d-1}|}\int_{S^{d-1}} \max\{t-V(\theta),0\}^{\frac{d}{2}-1}\,d\theta \,dt.
+        \frac{d\nu_{-\Delta+M_V}}{dt} = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\cdot \left(\frac{1}{\mathrm{Vol}(S^{d-1})}\int_{S^{d-1}} \max\{t-V(\theta),0\}^{\frac{d}{2}-1}\,d\theta\right).
     \]
-    See N.~Azamov, E.~M., F.~Sukochev and D.~Zanin \emph{The density of states depends on the domain} \texttt{arXiv:2107.09828}.
+    See N.~Azamov, E.~M., F.~Sukochev and D.~Zanin \emph{The density of states depends on the domain} Oper.
+Matrices \textbf{16}, No. 4 (2022), 1185--1189 \texttt{arXiv:2107.09828}.
 \end{frame}
+
+\begin{frame}{Insensitivity to localised perturbations}
+    One of the important features of the DOS is that $\nu_{-\Delta+M_V}$ only cares about the behaviour of $V$ ``at infinity".\pause
+    
+    For example, if $V_1,V_0 \in L_{\infty}(\Rl^d)$ are such that $V_1-V_0$ is compactly supported, then 
+    \[
+        \nu_{-\Delta+M_{V_1}}=\nu_{-\Delta+M_{V_0}}.
+    \]
+    (assuming that both measures exist, of course.)
+\end{frame}
+
 
 % \begin{frame}{Questions about the density of states}
 %     There has been a lot of research into the theoretical properties of $\nu_H$, with a particular emphasis on regularity of the ``integrated density of states"
@@ -377,13 +284,6 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
     \bigskip
     
     The usual operator trace $\tr$ can be characterised for trace class operators $A\in \mathcal{L}_1 \subset B(\mathcal{H})$ as \[\tr(A) = \lim_{n\to \infty} \sum_{k=1}^n \lambda(k,A). \] 
-    
-    \bigskip
-    
-    The Dixmier trace is defined on so-called weak trace class operators $A\in \mathcal{L}_{1,\infty} \subset B(\mathcal{H})$ by 
-    \[
-    \tr_\omega (A) = \omega{ \text -}\! \!\lim_{n\to\infty} \frac{1}{\log(2+n)}\sum_{k=1}^n \lambda(k,A),
-    \] where $\omega \in \ell_{\infty}(\mathbb{N})^*$ is an extended limit. Note that $\mathcal{L}_1 \subset \mathcal{L}_{1,\infty}$, but if $A \in \mathcal{L}_1$, $\tr_\omega(A)=0$.
 \end{frame}
 % 
 % 
@@ -417,32 +317,32 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
 %     Are there any other functionals with these properties?
 % \end{frame}
 %     
-% \begin{frame}{The weak trace class}
-%     A compact operator $T$ is said to be weak trace-class ($T \in \mathcal{L}_{1,\infty}$) if $\mu(k,T) = \mathcal{O}(k^{-1})$. Equivalently,
-%     $$
-%         \|T\|_{1,\infty} := \sup_{k\geq 0}\;(1+k)\mu(k,T) < \infty.
-%     $$
-%     The class $\mathcal{L}_{1,\infty}$ is an an ideal.    
-% \end{frame}
-% 
-% \begin{frame}{Dixmier traces}
-%     The ideal $\mathcal{L}_{1,\infty}$ admits traces. That is, there exist nontrivial unitarily invariant functionals on $\mathcal{L}_{1,\infty}$.\\
-%     \pause
-%     An important class of examples are the famous Dixmier traces.\\
-%     If $0\leq T \in \mathcal{L}_{1,\infty}$, then
-%     \begin{equation*}
-%         \sum_{k=0}^N \mu(k,T) = \mathcal{O}(\log(N)),\quad N\to\infty.
-%     \end{equation*}
-%     \pause   
-%     An extended limit is a linear functional $\omega \in \ell_{\infty}(\mathbb{N})^*$
-%     which coincides with the ``limit" functional on the subspace of convergent sequences.\\
-%     If $T \geq 0$ is a positive element of $\mathcal{L}_{1,\infty}$, define $\tr_{\omega}(T)$
-%     as
-%     $$
-%         \tr_\omega(T) = \omega\left(\left\{\frac{1}{\log(2+N)}\sum_{k=0}^N \mu(k,T)\right\}_{N=0}^\infty\right).
-%     $$
-% \end{frame}
-% 
+\begin{frame}{The weak trace class}
+    A compact operator $T$ is said to be weak trace-class ($T \in \mathcal{L}_{1,\infty}$) if $\mu(k,T) = \mathcal{O}(k^{-1})$. Equivalently,
+    $$
+        \|T\|_{1,\infty} := \sup_{k\geq 0}\;(1+k)\lambda(k,|T|) < \infty.
+    $$
+    The class $\mathcal{L}_{1,\infty}$ is an an ideal.    
+\end{frame}
+
+\begin{frame}{Dixmier traces}
+    The ideal $\mathcal{L}_{1,\infty}$ admits traces. That is, there exist nontrivial unitarily invariant functionals on $\mathcal{L}_{1,\infty}$.\\
+    \pause
+    An important class of examples are the famous Dixmier traces.\\
+    If $T \in \mathcal{L}_{1,\infty}$, then
+    \begin{equation*}
+        \sum_{k=0}^N \lambda(k,T) = \mathcal{O}(\log(N)),\quad N\to\infty.
+    \end{equation*}
+    \pause
+    An extended limit is a linear functional $\omega \in \ell_{\infty}(\mathbb{N})^*$
+    which coincides with the ``limit" functional on the subspace of convergent sequences.\\
+    If $T \geq 0$ is a positive element of $\mathcal{L}_{1,\infty}$, define $\tr_{\omega}(T)$
+    as
+    $$
+        \tr_\omega(T) = \omega\left(\left\{\frac{1}{\log(2+N)}\sum_{k=0}^N \mu(k,T)\right\}_{N=0}^\infty\right).
+    $$
+\end{frame}
+
 % \begin{frame}{Dixmier traces (cont.)}
 %     It is a theorem that $\tr_{\omega}$ extends to a continuous linear unitarily invariant functional on $\mathcal{L}_{1,\infty}$. 
 %     \begin{theorem}
@@ -460,15 +360,14 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
 
 
 \begin{frame}{Connes' integral formula}
-    A property of Dixmier traces (and all traces on $\mathcal{L}_{1,\infty}$) is that they vanish on finite rank operators. Dixmier thought that this would
-    make them useless, and uncomputable.
+    A property of Dixmier traces (and all traces on $\mathcal{L}_{1,\infty}$) is that they vanish on finite rank operators.
     \pause
-    His student Alain Connes realized that this is what makes them useful and computable. (One version of) Connes' integral formula states that
+    It was probably Connes whose realised that this property makes Dixmier traces computable in many situations. (One version of) Connes' integral formula states that
     if $f \in C^\infty_c(\Rl^d)$ then
     $$
         \tr_{\omega}(M_f(1-\Delta)^{-\frac{d}{2}}) = \frac{\Vol(S^{d-1})}{d(2\pi)^d}\int_{\Rl^d} f(t)\,dt.
     $$     
-    This is taking place on the Hilbert space $\mathcal{H} = L_2(\Rl^d)$, and relies on the fact that $M_f(1-\Delta)^{-\frac{d}{2}} \in \mathcal{L}_{1,\infty}$.
+    This is taking place on the Hilbert space $\mathcal{H} = L_2(\Rl^d)$, and relies on the fact that $M_f(1-\Delta)^{-\frac{d}{2}} \in \mathcal{L}_{1,\infty}.$
 \end{frame}
 
 % 
@@ -525,7 +424,7 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
 
 \begin{frame}{Advantages of the Dixmier trace formula for DOS}
 
-1. Simplifies proofs of some properties of DOS, such as insensitivity to localised perturbations.\\
+1. Simplifies proofs of some properties of DOS, such as insensitivity to localised perturbations described above.\\
 
 2. Makes some computations very easy. For example, the formula for radially homogeneous potentials stated above was first derived using the Dixmier trace formula.
 \end{frame}
@@ -534,8 +433,15 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
 \section{Recent developments}
 
 \begin{frame}{Trace formulas}
+    Our original proof in 2020 of the Dixmier trace formula for the DOS was concerned only with Schr\"odinger operators on $\Rl^n,$ and relied heavily on these assumptions.\pause
+
+    Since then, we have discovered that those assumptions are not really necessary. We can define a DOS measure (Strichartz has called this a ``spectral mass") quite abstractly.\pause
+    
+    If $(X,d_X)$ is a measure space equipped with a Borel measure $\mu,$ and $H$ is an operator on $L_2(X,\mu),$ we can define a density of states for $H$ in a similar way to how it was defined for Schr\"odinger operators on $\Rl^d.$
+        
+    
     \begin{block}{General form}
-    Let $(X, d_X)$ be a certain kind of metric space. Let $H$ be a certain kind of self-adjoint operator on $L_2(X)$ for which the DOS exists with respect to $x_0 \in X$. Then for a certain (fixed) function $w\in L_\infty(X)$, for all Dixmier traces $\tr_\omega$ and for all $f \in C_c(\mathbb{R})$ we have
+    Let $(X, d_X)$ be a metric space equipped with a measure $\mu$ \emph{satisfying certain assumptions}. Let $H$ be a self-adjoint operator on $L_2(X)$ \emph{satisfying certain assumptions} for which the DOS $\nu_H$ exists \emph{in some particular sense}. Then for a certain (fixed) function $w\in L_\infty(X)$, for all Dixmier traces $\tr_\omega$ and for all $f \in C_c(\mathbb{R})$ we have
 \begin{equation*}\label{F: DOS integral}
     \tr_\omega(f(H)M_w) = c\int_{\mathbb{R}} f\,d\nu_H.
 \end{equation*}
@@ -543,27 +449,20 @@ the celebrated Anderson localisation theory asserts that the spectrum of a rando
 
 \end{frame}
 
-\begin{frame}{Flavours}
-Different flavours of this theorem have been proven.
-\begin{block}{Azamov, McDonald, Sukochev, Zanin (2020)}
-$X = \mathbb{R}^d$, $H= \Delta+M_V$, $w(x) = (1+|x|^2)^{\frac{-d}{2}}$.
-\end{block}
+\begin{frame}
+We have proved this theorem in two different settings, using totally different methods.
 
-\begin{block}{Azamov, H., McDonald, Sukochev, Zanin (2022)}
+\begin{block}{Azamov--Hekkelman--M.--Sukochev--Zanin (2022)}
 $X$ a discrete metric space with some geometrical conditions, $H$ a general self-adjoint operator, $w(x) = \frac{1}{1+|B(x_0, d_X(x_0, x))|}$.
 \end{block}
 
-\begin{block}{H., McDonald (WIP, 2023?)}
-$X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-adjoint, lower bounded, elliptical second-order differential operator, $w(x) = \frac{1}{1+|B(x_0, d_X(x_0, x))|}$.
+\begin{block}{Hekkelman--M. (2023)}
+$X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-adjoint, lower bounded, uniformly elliptic second-order differential operator, $w(x) = \frac{1}{1+|B(x_0, d_X(x_0, x))|}$.
 \end{block}
 \end{frame}
 
-% 
-% \begin{frame}
-% \structure{\begin{center}
-% {\Huge{}(switch to document camera)}
-% \par\end{center}}\end{frame}
-% 
+\section{Applications in index theory}
+
 \begin{frame}{The local index theorem}
     Let $M$ be a (possibly non-compact) Riemannian $d$-manifold with a spinor bundle $S\rightarrow M$. Assume that $S$
     has a grading $\gamma\in \Gamma(\mathrm{End}(S))$, and associated Dirac operator $D$. With respect to the grading, write 
@@ -586,22 +485,19 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
     \end{equation*}
     The ``$\lim$" on the left hand side is necessary.\\
     \pause
-    \textbf{Mysticism of index theory}: if $f = 1$ (and $M$ is of course compact) then no limit is needed! $\tr(\gamma e^{-tD^2})$
+    \textbf{McKean--Singer formula}: if $f = 1$ (and $M$ is of course compact) then no limit is needed! $\tr(\gamma e^{-tD^2})$
     is independent of $t$, and equal to $\mathrm{Index}(D_+)$. The conventional explanation for this is to expand $\tr(\gamma e^{-tD^2})$ as
     \begin{equation*}
         \tr(\gamma e^{-tD^2}) = \sum_{k=0}^\infty e^{-t\lambda_k(D_+D_-)}-e^{-t\lambda_k(D_-D_+)} = \mathrm{Index}(D_+).
     \end{equation*}
-    \pause
-    Another argument is to simply differentiate $\tr(\gamma e^{-tD^2})$.
 \end{frame}
 
 \begin{frame}{The integrated local index theorem (cont.)}
-    If we consider $f$ not necessarily constant, we get
+    If $f$ is not necessarily constant, we get
     \begin{equation*}
         \frac{d}{dt}\tr(\gamma e^{-tD^2}M_f) = \frac{1}{2}\tr(\gamma e^{-tD^2}D[D,M_f]).
     \end{equation*}
-    If $f$ is not constant on connected components of $M$, then $[D,M_f]$ remains stubbornly non-zero, and $\tr(\gamma e^{-tD^2}M_f)$
-    will probably depend on $t$. 
+    If $f$ is not constant on connected components of $M$, then $[D,M_f]$ is non-zero, and $\tr(\gamma e^{-tD^2}M_f)$ will probably depend on $t$. 
 \end{frame}
 
 \begin{frame}{The Roe index theorem}
@@ -627,7 +523,7 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
         \lim_{t\to 0} m\{x\mapsto \tr_x(\gamma_xe^{-tD^2}(x,x))\} = m\{\widehat{A}(R)\}.
     \end{equation*}
     \pause
-    \textbf{Roe's mysticism}: The limit on the left hand side is unnecessary, and we have
+    \textbf{Roe's non-compact McKean--Singer identity}: The limit on the left hand side is unnecessary, and we have
     \begin{equation*}
         m\{x\mapsto P_{\ker(D_+)}(x,x)-P_{\ker(D_-)}(x,x)\} = m\{\widehat{A}(R)\}.
     \end{equation*}
@@ -635,51 +531,17 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
 \end{frame}
 
 \begin{frame}{A Dixmier trace perspective on Roe's index theorem}
-    I claim that if $0\leq W \in L_{1,\infty}(M)$, then
-    \begin{equation*}
-        \lim_{t\to 0}\tr_{\omega}(\gamma e^{-tD^2}M_W) = \tr_{\omega}(\widehat{A}(R)W).
-    \end{equation*}
-    This is, if you like, a ``Dixmier local index theorem".\\
-    \pause
-    \textbf{``Proof"}:
-    We have
-    \begin{align*}
-        \lim_{t\to 0}\tr_{\omega}(\gamma e^{-tD^2}M_W) &= \lim_{t\to 0}\lim_{s\to 1} (s-1)\tr(\gamma e^{-tD^2}M_W^s)\\
-                                                       &= \lim_{s\to 1}\lim_{t\to 0} (s-1)\tr(\gamma e^{-tD^2}M_W^s)\\
-                                                       &= \lim_{s\to 1}(s-1)\int_{M} \widehat{A}(R)W^s\\
-                                                       &= \tr_{\omega}(\widehat{A}(R)W).
-    \end{align*}
+    Under certain technical 
 \end{frame}
 
-\begin{frame}{Regular exhaustions and $L_{1,\infty}(M)$}
-    I also claim that associated to every regular exhaustion $M = \bigcup_{n=0}^\infty M_n$, there is a function $W \in L_{1,\infty}(M)$
-    such that $dW \in L_1(M).$\\
-    Roughly speaking, $W$ should be
-    \begin{equation*}
-        W(x) = \frac{1}{|M_n|} \text{ where } n = \min\{k\geq 0\;:\; x \in M_k\}
-    \end{equation*}
-    except smooth.
-    \pause    
-    We have,
-    \begin{equation*}
-        \frac{d}{dt}\tr_{\omega}(\gamma e^{-tD^2} M_W) = \frac{1}{2}\tr_{\omega}(\gamma e^{-tD^2}D[D,M_W]).
-    \end{equation*}    
-    But since $dW\in L_1(M)$... this is (probably) just zero!\\
-    \pause
-    \textbf{Mysticism}: When $W$ is chosen correctly, $\tr_{\omega}(\gamma e^{-tD^2}M_W)$ is independent of $t$, 
-    and we have 
-    \begin{equation*}
-        \tr_{\omega}(\gamma e^{-tD^2}M_W) = \tr_{\omega}(\widehat{A}(R)W).
-    \end{equation*}
-\end{frame}
 
-\begin{frame}{A ``Dixmier-Roe index theorem"}
-    Optimistically, we can take the limit as $t\to \infty$ to arrive at
-    \begin{equation*}
-        \tr_{\omega}((P_{\ker(D_+)}-P_{\ker(D_-)})M_W) = \tr_{\omega}(\widehat{A}(R)W).
-    \end{equation*}
-    \pause
-    Even if this can all be made into proper mathematics, this is not a new index theorem, but simply a restatement of Roe's index theorem.
+\begin{frame}{A ``Dixmier--McKean--Singer" formula}
+    \begin{theorem}[Hekkelman-M. (2023)]
+        Under (admittedly quite restrictive) technical assumptions, the Roe index is given by the Dixmier trace formula
+        \begin{equation*}
+            \tr_{\omega}(\gamma\exp(-tD^2)M_w) = \mathrm{Ind}_{\tau}(D).
+        \end{equation*}
+    \end{theorem}
 \end{frame}
 
 \begin{frame}
