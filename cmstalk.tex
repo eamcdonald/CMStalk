@@ -99,12 +99,12 @@ Based on joint work with N. Azamov, E. Hekkelman F. Sukochev and D. Zanin.}
 \begin{frame}{Introduction}
 This talk is about a connection between the density of states and Dixmier traces, covered in the two papers
 \begin{itemize}
-\item{} N.~Azamov, E.~M., F.~Sukochev. and D.~Zanin \emph{A Dixmier Trace Formula for the Density of States} Comm. Math. Phys. 377 (2020), no. 3, 2597–2628.  \texttt{arXiv:1910.12380}.
-\item{} N.~Azamov, E.~Hekkelman, E.M., F.~Sukochev and D.~Zanin. \emph{An application of singular traces to crystals and percolation.} J. Geom. Phys. 179 (2022), Paper No. 104608, 22 pp. \texttt{arXiv:2202.03676}
+\item{} Azamov, M., Sukochev. and Zanin \emph{A Dixmier Trace Formula for the Density of States} Comm. Math. Phys. 377 (2020), no. 3, 2597–2628.  \texttt{arXiv:1910.12380}.
+\item{} Azamov, Hekkelman, M., Sukochev and Zanin. \emph{An application of singular traces to crystals and percolation.} J. Geom. Phys. 179 (2022), Paper No. 104608, 22 pp. \texttt{arXiv:2202.03676}.
 \end{itemize}
 and the recent preprint
 \begin{itemize}
-\item{} E.~Hekkelman and E.~M. \emph{A general Dixmier trace formula for the density of states on open manifolds} (2023) \texttt{arXiv:2304.13272}
+\item{} Hekkelman and M. \emph{A general Dixmier trace formula for the density of states on open manifolds} (2023) \texttt{arXiv:2304.13272}.
 \end{itemize}
 
 % 
@@ -130,8 +130,7 @@ and the recent preprint
 \end{frame}
 
 \begin{frame}{Introduction}
-    Dixmier traces are probably best known due to their use by Connes to define the integration functional
-    in noncommutative geometry. In particular, Connes gave a formula for the Hochschild class of the Chern character in terms of the Dixmier trace. \\ 
+    Dixmier traces are best known due to their use by Connes to define the integration functional in noncommutative geometry. In particular, Connes gave a formula for the Hochschild class of the Chern character in terms of the Dixmier trace. \\
     \pause
     But their use is not limited to NCG. Today I will talk about one Dixmier trace formula which is meaningful in mathematical physics. \\
     \pause
@@ -139,8 +138,12 @@ and the recent preprint
 \end{frame}
 
 \section{Dixmier trace formula for the density of states}
+
+\begin{frame}
+    \huge{Section 1: The density of states of Schr\"odinger operators}
+\end{frame}
 % 
-\begin{frame}{The basic idea}
+\begin{frame}{The fundamental problem}
     If $H$ is a lower-bounded self-adjoint operator (on a Hilbert space) with discrete spectrum (i.e. the spectrum consists only of eigenvalues of finite multiplicity), then we can understand the spectrum through the spectral counting function
     \begin{align*}
         N(t,H) &= \tr(\chi_{(-\infty,t]}(H))\\
@@ -148,7 +151,8 @@ and the recent preprint
                      &\text{ corresponding to eigenvalues }\leq t.
     \end{align*}
     \pause
-    This is less useful when $H$ has some essential spectrum. What is a good replacement?
+    This is less useful when $H$ the spectrum of $H$ is not discrete. What is a good replacement?\pause
+
 
 %     Let $F$ be a locally integrable function on $\Rl^d$, $d \geq 1$. A reasonable definition of a \emph{mean value} for $F$ is to take the limit
 %     \begin{equation*}
@@ -184,9 +188,14 @@ and the recent preprint
     \end{equation*}
     \pause
     On $L_2(B(0,R)),$ we can define the Dirichlet Laplace operator with Dirichlet boundary conditions, $\Delta_R.$
-    \pause
-    
-    The operator $\Delta_R$ is negative semidefinite and has purely discrete spectrum.
+\end{frame}
+
+\begin{frame}{Physical setting}
+    The operator $\Delta_R$ is negative semidefinite and has purely discrete spectrum.\\
+    \begin{center}
+    \includegraphics[width=110mm]{vibrating_drum.png}
+    \end{center}
+    As $R\to\infty,$ $N(t,-\Delta_R) \sim R^d.$
 \end{frame}
 
 \begin{frame}{Schr\"odinger operators on bounded domains}
@@ -217,7 +226,7 @@ and the recent preprint
 \begin{frame}{The density of states}
     What is a good replacement?\\
     \pause
-    {\bf Idea}: (From solid-state physics.) Let $R > 0$, and ``restrict" $H$ to $B(0,R)$:
+    {\bf Idea}: (From solid-state physics.) Let $R > 0$, and ``restrict" $H$ to $B(0,R).$ Let
     \[
         H_R := -\Delta_R + M_{V}
     \]
@@ -245,14 +254,6 @@ and the recent preprint
     \end{equation*}
 \end{frame}
 
-\begin{frame}{Example}
-    Another example allowing explicit computation is when $V$ is radially homogeneous (i.e., $V(r\xi) = V(\xi)$ for all $r>0$). In this case, the DOS exists and 
-    \[
-        \frac{d\nu_{-\Delta+M_V}}{dt} = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\cdot \left(\frac{1}{\mathrm{Vol}(S^{d-1})}\int_{S^{d-1}} \max\{t-V(\theta),0\}^{\frac{d}{2}-1}\,d\theta\right).
-    \]
-    See N.~Azamov, E.~M., F.~Sukochev and D.~Zanin \emph{The density of states depends on the domain} Oper.
-Matrices \textbf{16}, No. 4 (2022), 1185--1189 \texttt{arXiv:2107.09828}.
-\end{frame}
 
 \begin{frame}{Insensitivity to localised perturbations}
     One of the important features of the DOS is that $\nu_{-\Delta+M_V}$ only cares about the behaviour of $V$ ``at infinity".\pause
@@ -426,28 +427,47 @@ Matrices \textbf{16}, No. 4 (2022), 1185--1189 \texttt{arXiv:2107.09828}.
 
 1. Simplifies proofs of some properties of DOS, such as insensitivity to localised perturbations described above.\\
 
-2. Makes some computations very easy. For example, the formula for radially homogeneous potentials stated above was first derived using the Dixmier trace formula.
+2. Makes some computations very easy. For example, when $V$ is radially homogeneous (i.e., $V(r\xi) = V(\xi)$ for all $r>0$). In this case, the DOS exists and
+    \[
+        \frac{d\nu_{-\Delta+M_V}}{dt} = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\cdot \left(\frac{1}{\mathrm{Vol}(S^{d-1})}\int_{S^{d-1}} \max\{t-V(\theta),0\}^{\frac{d}{2}-1}\,d\theta\right).
+    \]
+    See N.~Azamov, E.~M., F.~Sukochev and D.~Zanin \emph{The density of states depends on the domain} Oper. Matrices \textbf{16}, No. 4 (2022), 1185--1189 \texttt{arXiv:2107.09828}.
 \end{frame}
 
 
 \section{Recent developments}
+\begin{frame}
+    \huge{Section 2: Recent developments}
+\end{frame}
+
 
 \begin{frame}{Trace formulas}
     Our original proof in 2020 of the Dixmier trace formula for the DOS was concerned only with Schr\"odinger operators on $\Rl^n,$ and relied heavily on these assumptions.\pause
 
-    Since then, we have discovered that those assumptions are not really necessary. We can define a DOS measure (Strichartz has called this a ``spectral mass") quite abstractly.\pause
-    
-    If $(X,d_X)$ is a measure space equipped with a Borel measure $\mu,$ and $H$ is an operator on $L_2(X,\mu),$ we can define a density of states for $H$ in a similar way to how it was defined for Schr\"odinger operators on $\Rl^d.$
-        
-    
-    \begin{block}{General form}
-    Let $(X, d_X)$ be a metric space equipped with a measure $\mu$ \emph{satisfying certain assumptions}. Let $H$ be a self-adjoint operator on $L_2(X)$ \emph{satisfying certain assumptions} for which the DOS $\nu_H$ exists \emph{in some particular sense}. Then for a certain (fixed) function $w\in L_\infty(X)$, for all Dixmier traces $\tr_\omega$ and for all $f \in C_c(\mathbb{R})$ we have
-\begin{equation*}\label{F: DOS integral}
-    \tr_\omega(f(H)M_w) = c\int_{\mathbb{R}} f\,d\nu_H.
-\end{equation*}
-    \end{block}
+    Since then, we have made a lot of progress in understanding why the formula is true and we have several generalisations.\pause
+
+    In particular:
+    \begin{enumerate}
+        \item{} The underlying space does not need to be Euclidean\pause
+        \item{} The operator does not need to be Schr\"odinger operator.
+    \end{enumerate}
 
 \end{frame}
+    
+\begin{frame}{A general theorem}
+    If $(X,d_X)$ is a measure space equipped with a Borel measure $\mu,$ and $H$ is an operator on $L_2(X,\mu),$ we can define a density of states for $H$ in a similar way to how it was defined for Schr\"odinger operators on $\Rl^d.$
+        
+    \begin{block}{General form}
+    Let $(X, d_X)$ be a metric space equipped with a measure $\mu$ \emph{satisfying certain assumptions}. Let $H$ be a self-adjoint operator on $L_2(X)$ \emph{satisfying certain assumptions} for which the DOS $\nu_H$ exists \emph{in some particular sense}. Then for a certain (fixed) function $w\in L_\infty(X)$ and for all Dixmier traces $\tr_\omega$ and for all $f \in C_c(\mathbb{R})$ we have
+    \begin{equation*}\label{F: DOS integral}
+        \tr_\omega(f(H)M_w) = c\int_{\mathbb{R}} f\,d\nu_H.
+    \end{equation*}
+    where $c$ is a constant depending on $w$ but not $H$ or $f.$
+    \end{block}
+\end{frame}
+
+
+
 
 \begin{frame}
 We have proved this theorem in two different settings, using totally different methods.
@@ -457,11 +477,16 @@ $X$ a discrete metric space with some geometrical conditions, $H$ a general self
 \end{block}
 
 \begin{block}{Hekkelman--M. (2023)}
-$X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-adjoint, lower bounded, uniformly elliptic second-order differential operator, $w(x) = \frac{1}{1+|B(x_0, d_X(x_0, x))|}$.
+    $X$ a manifold of bounded geometry satisfying some further geometrical conditions, $H$ a self-adjoint, lower bounded, uniformly elliptic second-order differential operator, $w(x) = \frac{1}{1+|B(x_0, d_X(x_0, x))|}$.
 \end{block}
+In both cases, $x_0\in X$ is some fixed base-point.
 \end{frame}
 
 \section{Applications in index theory}
+
+\begin{frame}
+    \huge{Section 3: The Roe index theorem}
+\end{frame}
 
 \begin{frame}{The local index theorem}
     Let $M$ be a (possibly non-compact) Riemannian $d$-manifold with a spinor bundle $S\rightarrow M$. Assume that $S$
@@ -470,35 +495,35 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
         D = \begin{pmatrix} 0 & D_+\\ D_- & 0 \end{pmatrix}.
     \end{equation*}
     \pause
-    \begin{theorem}[Patodi, Gilkey]
+    \begin{theorem}[Patodi (1971), Gilkey (1973), Atiyah--Bott-Patodi (1973)]
         For all $x \in M$, we have
         \begin{equation*}
             \lim_{t\to 0} \tr_x(\gamma_xe^{-tD^2}(x,x))|dx| = \widehat{A}(R)(x)^{(d)}.
         \end{equation*}
     \end{theorem}
 \end{frame}
-
-\begin{frame}{The integrated local index theorem}
-    Write the local index theorem in a slightly different way. For all $f \in C_c(M)$, we have
-    \begin{equation*}
-        \lim_{t\to 0} \tr(\gamma e^{-tD^2}M_f) = \int_{M} \widehat{A}(R)f.
-    \end{equation*}
-    The ``$\lim$" on the left hand side is necessary.\\
-    \pause
-    \textbf{McKean--Singer formula}: if $f = 1$ (and $M$ is of course compact) then no limit is needed! $\tr(\gamma e^{-tD^2})$
-    is independent of $t$, and equal to $\mathrm{Index}(D_+)$. The conventional explanation for this is to expand $\tr(\gamma e^{-tD^2})$ as
-    \begin{equation*}
-        \tr(\gamma e^{-tD^2}) = \sum_{k=0}^\infty e^{-t\lambda_k(D_+D_-)}-e^{-t\lambda_k(D_-D_+)} = \mathrm{Index}(D_+).
-    \end{equation*}
-\end{frame}
-
-\begin{frame}{The integrated local index theorem (cont.)}
-    If $f$ is not necessarily constant, we get
-    \begin{equation*}
-        \frac{d}{dt}\tr(\gamma e^{-tD^2}M_f) = \frac{1}{2}\tr(\gamma e^{-tD^2}D[D,M_f]).
-    \end{equation*}
-    If $f$ is not constant on connected components of $M$, then $[D,M_f]$ is non-zero, and $\tr(\gamma e^{-tD^2}M_f)$ will probably depend on $t$. 
-\end{frame}
+%
+% \begin{frame}{The integrated local index theorem}
+%     Write the local index theorem in a slightly different way. For all $f \in C_c(M)$, we have
+%     \begin{equation*}
+%         \lim_{t\to 0} \tr(\gamma e^{-tD^2}M_f) = \int_{M} \widehat{A}(R)f.
+%     \end{equation*}
+%     The ``$\lim$" on the left hand side is necessary.\\
+%     \pause
+%     \textbf{McKean--Singer formula}: if $f = 1$ (and $M$ is of course compact) then no limit is needed! $\tr(\gamma e^{-tD^2})$
+%     is independent of $t$, and equal to $\mathrm{Index}(D_+)$. The conventional explanation for this is to expand $\tr(\gamma e^{-tD^2})$ as
+%     \begin{equation*}
+%         \tr(\gamma e^{-tD^2}) = \sum_{k=0}^\infty e^{-t\lambda_k(D_+D_-)}-e^{-t\lambda_k(D_-D_+)} = \mathrm{Index}(D_+).
+%     \end{equation*}
+% \end{frame}
+%
+% \begin{frame}{The integrated local index theorem (cont.)}
+%     If $f$ is not necessarily constant, we get
+%     \begin{equation*}
+%         \frac{d}{dt}\tr(\gamma e^{-tD^2}M_f) = \frac{1}{2}\tr(\gamma e^{-tD^2}D[D,M_f]).
+%     \end{equation*}
+%     If $f$ is not constant on connected components of $M$, then $[D,M_f]$ is non-zero, and $\tr(\gamma e^{-tD^2}M_f)$ will probably depend on $t$.
+% \end{frame}
 
 \begin{frame}{The Roe index theorem}
     Suppose that $M$ has a \emph{regular exhaustion}. That is, $M$ is an increasing union of compact subsets $M = \bigcup_{n=0}^\infty M_n$, satisfying certain technical conditions.
@@ -510,7 +535,7 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
     \begin{equation*}
         m\{f\} = \lim_{n\to\infty} \frac{1}{|M_n|} \int_{M_n} f
     \end{equation*}
-    whenever the limit exists, and extended to all bounded functions $f$.
+    whenever the limit exists, and extended to all bounded continuous functions $f$.
 \end{frame}
 
 \begin{frame}{The Roe index theorem (cont.)}
@@ -527,13 +552,13 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
     \begin{equation*}
         m\{x\mapsto P_{\ker(D_+)}(x,x)-P_{\ker(D_-)}(x,x)\} = m\{\widehat{A}(R)\}.
     \end{equation*}
-    This is the Roe index theorem. 
+    This is the Roe index theorem. The left hand side is called $\mathrm{Ind}_{\tau}(D),$ the Roe index.
 \end{frame}
 
-\begin{frame}{A Dixmier trace perspective on Roe's index theorem}
-    Under certain technical 
+\begin{frame}
+    The process of ``dividing by the volume and taking the limit" used in the formulation of the Roe index theorem is reminiscent of the density of states. Is there a Dixmier trace formmula for the
+    Roe index?
 \end{frame}
-
 
 \begin{frame}{A ``Dixmier--McKean--Singer" formula}
     \begin{theorem}[Hekkelman-M. (2023)]
@@ -541,6 +566,7 @@ $X$ a manifold of bounded geometry plus some geometrical conditions, $H$ a self-
         \begin{equation*}
             \tr_{\omega}(\gamma\exp(-tD^2)M_w) = \mathrm{Ind}_{\tau}(D).
         \end{equation*}
+        Here, $w$ is the function $w(x) = \frac{1}{1+|B(x_0, d_X(x_0, x))|}.$
     \end{theorem}
 \end{frame}
 
