@@ -99,7 +99,7 @@ Based on joint work with N. Azamov, E. Hekkelman F. Sukochev and D. Zanin.}
 \begin{frame}{Introduction}
 This talk is about a connection between the density of states and Dixmier traces, covered in the two papers
 \begin{itemize}
-\item{} Azamov, M., Sukochev. and Zanin \emph{A Dixmier Trace Formula for the Density of States} Comm. Math. Phys. 377 (2020), no. 3, 2597–2628.  \texttt{arXiv:1910.12380}.
+\item{} Azamov, M., Sukochev and Zanin \emph{A Dixmier Trace Formula for the Density of States} Comm. Math. Phys. 377 (2020), no. 3, 2597–2628.  \texttt{arXiv:1910.12380}.
 \item{} Azamov, Hekkelman, M., Sukochev and Zanin. \emph{An application of singular traces to crystals and percolation.} J. Geom. Phys. 179 (2022), Paper No. 104608, 22 pp. \texttt{arXiv:2202.03676}.
 \end{itemize}
 and the recent preprint
@@ -151,7 +151,7 @@ and the recent preprint
                      &\text{ corresponding to eigenvalues }\leq t.
     \end{align*}
     \pause
-    This is less useful when $H$ the spectrum of $H$ is not discrete. What is a good replacement?\pause
+    This is less useful when the spectrum is not discrete. What is a good replacement?\pause
 
 
 %     Let $F$ be a locally integrable function on $\Rl^d$, $d \geq 1$. A reasonable definition of a \emph{mean value} for $F$ is to take the limit
@@ -337,10 +337,10 @@ and the recent preprint
     \pause
     An extended limit is a linear functional $\omega \in \ell_{\infty}(\mathbb{N})^*$
     which coincides with the ``limit" functional on the subspace of convergent sequences.\\
-    If $T \geq 0$ is a positive element of $\mathcal{L}_{1,\infty}$, define $\tr_{\omega}(T)$
+    If $T \in \mathcal{L}_{1,\infty}$, define $\tr_{\omega}(T)$
     as
     $$
-        \tr_\omega(T) = \omega\left(\left\{\frac{1}{\log(2+N)}\sum_{k=0}^N \mu(k,T)\right\}_{N=0}^\infty\right).
+        \tr_\omega(T) = \omega\left(\left\{\frac{1}{\log(2+N)}\sum_{k=0}^N \lambda(k,T)\right\}_{N=0}^\infty\right).
     $$
 \end{frame}
 
@@ -363,7 +363,7 @@ and the recent preprint
 \begin{frame}{Connes' integral formula}
     A property of Dixmier traces (and all traces on $\mathcal{L}_{1,\infty}$) is that they vanish on finite rank operators.
     \pause
-    It was probably Connes whose realised that this property makes Dixmier traces computable in many situations. (One version of) Connes' integral formula states that
+    It was probably Connes who realised that this property makes Dixmier traces computable in many situations. (One version of) Connes' integral formula states that
     if $f \in C^\infty_c(\Rl^d)$ then
     $$
         \tr_{\omega}(M_f(1-\Delta)^{-\frac{d}{2}}) = \frac{\Vol(S^{d-1})}{d(2\pi)^d}\int_{\Rl^d} f(t)\,dt.
@@ -392,16 +392,16 @@ and the recent preprint
 
 \begin{frame}{Connes' integral formula reconsidered}
     Restrict attention to a function $f \in C^\infty_c(\Rl^d)$ which is radial. There exists $g \in C_0([0,\infty))$ such that $f(t) = g(|t|^2)$. Then Connes' integral formula implies
-%     \begin{align*}
-%         \tr_{\omega}(M_f(1-\Delta)^{-\frac{d}{2}}) &= \frac{\Vol(S^{d-1})}{d(2\pi)^d} \int_{\Rl^d} g(|t|^2)\,dt\\
-%                                                    &= \frac{\Vol(S^{d-1})^2}{2d(2\pi)^d}\int_{0}^\infty g(r)r^{\frac{d}{2}-1}\,dr. 
-%     \end{align*}
+    \begin{align*}
+        \tr_{\omega}(M_f(1-\Delta)^{-\frac{d}{2}}) &= \frac{\Vol(S^{d-1})}{d(2\pi)^d} \int_{\Rl^d} g(|t|^2)\,dt\\
+                                                   &= \frac{\Vol(S^{d-1})^2}{2d(2\pi)^d}\int_{0}^\infty g(r)r^{\frac{d}{2}-1}\,dr.
+    \end{align*}\pause
     Switch to the Fourier side (recall that $\tr_{\omega}$ is unitarily invariant!) and we get
     $$
         \tr_{\omega}(g(-\Delta)(1+M_{|x|}^2)^{-\frac{d}{2}}) = \frac{\Vol(S^{d-1})}{d}\int_0^{\infty} g(r) \,d\mu(r)
     $$
     where $\mu$ is the measure $d\mu(r) = \frac{\Vol(S^{d-1})}{2(2\pi)^d}r^{\frac{d}{2}-1}\,dr.$
-     
+     \pause
     This measure $\mu$ is precisely the density of states measure for the ``free" Hamiltonian $H = -\Delta$. This is not a coincidence!
 \end{frame}
 
@@ -424,9 +424,9 @@ and the recent preprint
 
 
 \begin{frame}{Advantages of the Dixmier trace formula for DOS}
-
+Why would this formula be interesting?\\ \pause
 1. Simplifies proofs of some properties of DOS, such as insensitivity to localised perturbations described above.\\
-
+\pause
 2. Makes some computations very easy. For example, when $V$ is radially homogeneous (i.e., $V(r\xi) = V(\xi)$ for all $r>0$). In this case, the DOS exists and
     \[
         \frac{d\nu_{-\Delta+M_V}}{dt} = \frac{\Vol(S^{d-1})}{2(2\pi)^d}\cdot \left(\frac{1}{\mathrm{Vol}(S^{d-1})}\int_{S^{d-1}} \max\{t-V(\theta),0\}^{\frac{d}{2}-1}\,d\theta\right).
@@ -448,7 +448,7 @@ and the recent preprint
 
     In particular:
     \begin{enumerate}
-        \item{} The underlying space does not need to be Euclidean\pause
+        \item{} The underlying space does not need to be Euclidean.\pause
         \item{} The operator does not need to be Schr\"odinger operator.
     \end{enumerate}
 
@@ -458,7 +458,7 @@ and the recent preprint
     If $(X,d_X)$ is a measure space equipped with a Borel measure $\mu,$ and $H$ is an operator on $L_2(X,\mu),$ we can define a density of states for $H$ in a similar way to how it was defined for Schr\"odinger operators on $\Rl^d.$
         
     \begin{block}{General form}
-    Let $(X, d_X)$ be a metric space equipped with a measure $\mu$ \emph{satisfying certain assumptions}. Let $H$ be a self-adjoint operator on $L_2(X)$ \emph{satisfying certain assumptions} for which the DOS $\nu_H$ exists \emph{in some particular sense}. Then for a certain (fixed) function $w\in L_\infty(X)$ and for all Dixmier traces $\tr_\omega$ and for all $f \in C_c(\mathbb{R})$ we have
+    Let $(X, d_X)$ be a metric space equipped with a measure $\mu$ \emph{satisfying certain assumptions}. Let $H$ be a self-adjoint operator on $L_2(X)$ \textbf{satisfying certain assumptions} for which the DOS $\nu_H$ exists \textbf{in some particular sense}. Then for a certain (fixed) function $w\in L_\infty(X)$ and for all Dixmier traces $\tr_\omega$ and for all $f \in C_c(\mathbb{R})$ we have
     \begin{equation*}\label{F: DOS integral}
         \tr_\omega(f(H)M_w) = c\int_{\mathbb{R}} f\,d\nu_H.
     \end{equation*}
@@ -543,7 +543,7 @@ In both cases, $x_0\in X$ is some fixed base-point.
     \begin{equation*}
         \lim_{t\to 0} \frac{1}{|M_n|}\int_{M_n}\tr_x(\gamma_xe^{-tD^2}(x,x))\,dx = \frac{1}{|M_n|}\int_{M_n} \widehat{A}(R)^{(d)}.
     \end{equation*}
-    Roe proved that under suitable uniformity assumptions on the metric and the spinor bundle $S$ you can take the ``limit" as $n\to\infty$, and get
+    Roe proved that under suitable uniformity assumptions on the metric and the spinor bundle $S,$ one can take the ``limit" as $n\to\infty$, and get
     \begin{equation*}
         \lim_{t\to 0} m\{x\mapsto \tr_x(\gamma_xe^{-tD^2}(x,x))\} = m\{\widehat{A}(R)\}.
     \end{equation*}
