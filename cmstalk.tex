@@ -199,12 +199,12 @@ and the recent preprint
 \end{frame}
 
 \begin{frame}{Schr\"odinger operators on bounded domains}
-    Given $V \in L_\infty(B(0,R))$, denote by $M_V$ the operator of pointwise multiplication by $V$. That is, $(M_V\xi)(t) = V(t)\xi(t)$. \pause \\
+%     Given $V \in L_\infty(B(0,R))$, denote by $M_V$ the operator of pointwise multiplication by $V$. That is, $(M_V\xi)(t) = V(t)\xi(t)$. \pause \\
     For the purposes of this talk a \emph{Schr\"odinger operator} on $B(0,R)$ is a linear operator
     $$
-        H = -\Delta_R+M_V
+        H = -\Delta_R+V
     $$
-    where $V$ is real-valued. Since we only consider bounded $V$, the operator $H$ is self-adjoint with domain equal to that of $\Delta_R$.\pause
+    where $V$ is bounded and real-valued. Since we only consider bounded $V$, the operator $H$ is self-adjoint with domain equal to that of $\Delta_R$.\pause
     
     Since $H$ is a relatively compact
     perturbation of $-\Delta_R$, the spectrum of $H$ is discrete and consists only of eigenvalues of finite multiplicity. 
@@ -215,7 +215,7 @@ and the recent preprint
     Let $\Delta = \sum_{j=1}^d \partial_{x_j}^2$ be the Laplace operator on $L_2(\Rl^d)$. This operator is self-adjoint,
     has spectrum $(-\infty,0]$ and has no eigenvalues. \pause We consider the Hamiltonian 
     $$
-        H = -\Delta+M_V
+        H = -\Delta+V
     $$
     where $V \in L_\infty(\Rl^d)$ is real-valued.
     
@@ -228,7 +228,7 @@ and the recent preprint
     \pause
     {\bf Idea}: (From solid-state physics.) Let $R > 0$, and ``restrict" $H$ to $B(0,R).$ Let
     \[
-        H_R := -\Delta_R + M_{V}
+        H_R := -\Delta_R + V
     \]
     on $L_2(B(0,R))$. The \emph{density of states} of $H$ is a measure $\nu_H$ on $\Rl$ defined as
     \[
@@ -260,7 +260,7 @@ and the recent preprint
     
     For example, if $V_1,V_0 \in L_{\infty}(\Rl^d)$ are such that $V_1-V_0$ is compactly supported, then 
     \[
-        \nu_{-\Delta+M_{V_1}}=\nu_{-\Delta+M_{V_0}}.
+        \nu_{-\Delta+{V_1}}=\nu_{-\Delta+{V_0}}.
     \]
     (assuming that both measures exist, of course.)
 \end{frame}
@@ -368,6 +368,7 @@ and the recent preprint
     $$
         \tr_{\omega}(M_f(1-\Delta)^{-\frac{d}{2}}) = \frac{\Vol(S^{d-1})}{d(2\pi)^d}\int_{\Rl^d} f(t)\,dt.
     $$     
+    Here, $M_f$ is the operator of pointwise multiplication by $f.$
     This is taking place on the Hilbert space $\mathcal{H} = L_2(\Rl^d)$, and relies on the fact that $M_f(1-\Delta)^{-\frac{d}{2}} \in \mathcal{L}_{1,\infty}.$
 \end{frame}
 
